@@ -3,7 +3,7 @@
 # Author: Schakel Marketeers
 # License: MIT
 
-FROM php:7.3.16
+FROM php:7.4.8
 
 # system setup
 RUN apt-get update && apt-get install -y \
