@@ -3,7 +3,7 @@
 # Author: Schakel Marketeers
 # License: MIT
 
-FROM php:7.4.8
+FROM php:8.0
 
 # system setup
 RUN apt-get update && apt-get install -y \
@@ -23,7 +23,6 @@ RUN pecl install imagick \
     && docker-php-ext-install zip \
     && docker-php-ext-install curl \
     && docker-php-ext-install pdo_mysql \
-    && docker-php-ext-install json \
     && docker-php-ext-install intl
 
 # disable memory limit
@@ -36,7 +35,7 @@ ENV COMPOSER_ALLOW_SUPERUSER=1
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # install npm
-RUN curl -sL https://deb.nodesource.com/setup_10.x | bash && apt-get install -y nodejs
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash && apt-get install -y nodejs
 
 # clean this mess up!
 RUN apt-get clean
