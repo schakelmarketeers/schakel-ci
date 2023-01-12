@@ -3,11 +3,11 @@
 # Author: Schakel Marketeers
 # License: MIT
 
-FROM php:8.0
+FROM php:8.1
 
 # system setup
 RUN apt-get update && apt-get install -y \
-    sqlite \
+    sqlite3 \
     zlib1g-dev \
     libicu-dev \
     libmagickwand-dev \
@@ -35,7 +35,7 @@ ENV COMPOSER_ALLOW_SUPERUSER=1
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # install npm
-RUN curl -sL https://deb.nodesource.com/setup_12.x | bash && apt-get install -y nodejs
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash && apt-get install -y nodejs
 
 # clean this mess up!
 RUN apt-get clean
