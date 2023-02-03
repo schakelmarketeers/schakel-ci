@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y \
     libmagickwand-dev \
     gnupg \
     libssl-dev \
+    libgmp-dev \
     libcurl4-openssl-dev \
     pkg-config \
     libzip-dev
@@ -23,7 +24,8 @@ RUN pecl install imagick \
     && docker-php-ext-install zip \
     && docker-php-ext-install curl \
     && docker-php-ext-install pdo_mysql \
-    && docker-php-ext-install intl
+    && docker-php-ext-install intl \
+    && docker-php-ext-install gmp
 
 # disable memory limit
 RUN echo "memory_limit = -1;" > $PHP_INI_DIR/conf.d/memory_limit.ini
