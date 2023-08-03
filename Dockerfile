@@ -25,7 +25,8 @@ RUN pecl install imagick \
     && docker-php-ext-install curl \
     && docker-php-ext-install pdo_mysql \
     && docker-php-ext-install intl \
-    && docker-php-ext-install gmp
+    && docker-php-ext-install gmp \
+    && docker-php-ext-install bcmath
 
 # disable memory limit
 RUN echo "memory_limit = -1;" > $PHP_INI_DIR/conf.d/memory_limit.ini
